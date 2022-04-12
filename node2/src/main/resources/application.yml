@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: node2
+  profiles:
+    active: @env@
