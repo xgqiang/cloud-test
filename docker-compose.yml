@@ -1,0 +1,50 @@
+version: "3.8"
+services:
+  node1:
+    image: node1
+    ports:
+      - "7710:7710"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    #    volumes:
+    #      - /usr/local/cloud/logs/gateway:/logs
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+  node2:
+    image: node2
+    ports:
+      - "7720:7720"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    #    volumes:
+    #      - /usr/local/cloud/logs/auth:/logs
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+  node3:
+    image: node3
+    ports:
+      - "7730:7730"
+    environment:
+      - "SPRING_PROFILES_ACTIVE=dev"
+    #    volumes:
+    #      - /usr/local/cloud/logs/auth:/logs
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+networks:
+  cloud-test:
+    driver: bridge

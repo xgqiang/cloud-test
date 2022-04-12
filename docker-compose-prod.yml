@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  node1-prod:
+    image: node1-prod
+    ports:
+      - "7711:7711"
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+  node2-prod:
+    image: node2-prod
+    ports:
+      - "7721:7721"
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+  node3-prod:
+    image: node3-prod
+    ports:
+      - "7731:7731"
+    networks:
+      - cloud-test
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 500M
+networks:
+  cloud-test:
+    driver: bridge
